@@ -2,7 +2,8 @@
 
 #include <cstdlib>
 
-Tree::Tree()
+Tree::Tree() :
+	m_flowers(0)
 {
 }
 
@@ -12,12 +13,13 @@ Tree::~Tree()
 
 int Tree::Grow()
 {
-	int const num = rand() % 10;
-	for (int i = 0; i < num; i++)
+	for (int i = 0; i < m_flowers; i++)
 	{
 		m_apples.push_back(Apple());
 	}
-	return num;
+	int const temp = m_flowers;
+	m_flowers = 0;
+	return temp;
 }
 
 int Tree::Shake()
@@ -31,7 +33,19 @@ int Tree::Shake()
 	return num;
 }
 
+int Tree::Blossom()
+{
+	int const num = rand() % 10;
+	m_flowers += num;
+	return num;
+}
+
 int Tree::CountApples() const
 {
 	return m_apples.size();
+}
+
+int Tree::CountFlowers() const
+{
+	return m_flowers;
 }

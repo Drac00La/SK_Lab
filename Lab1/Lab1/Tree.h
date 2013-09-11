@@ -12,9 +12,12 @@ public:
 
 	int Grow();
 	int Shake();
+	int Blossom();
 
 	int CountApples() const;
+	int CountFlowers() const;
 
 private:
 	std::vector<Apple> m_apples;
+	int m_flowers;
 };
